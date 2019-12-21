@@ -9,7 +9,7 @@ _EMAIL_         =       "prana.ronita@gmail.com / prsfx.net@gmail.com"
 _SOCIAL_        =       "@prsfx"
 
 _PROJECTNAME_   =       "LoDb"
-_VERSION_       =       "1.1"
+_VERSION_       =       "1.2"
 
 _ABOUT_         =       "© 2019 | Prana Ronita | @prsfx"
 _LASTMODIFIED_  =       "15th December 2019"
@@ -20,8 +20,10 @@ _FOOTER_        =       "____________________________www.prsfx.net______________
 
 import LoDb
 
-import os, sys
+import os
+import sys
 import logging
+
 import xml.etree.ElementTree as xml
 
 from cStringIO import StringIO
