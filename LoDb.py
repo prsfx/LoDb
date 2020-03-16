@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
 
 _HEADER_        =       "_____________________________prsfxTools_____________________________"
 
@@ -9,14 +9,14 @@ _EMAIL_         =       "prana.ronita@gmail.com / prsfx.net@gmail.com"
 _SOCIAL_        =       "@prsfx"
 
 _PROJECTNAME_   =       "LoDb"
-_VERSION_       =       "1.2"
+_VERSION_       =       "1.5"
 
-_ABOUT_         =       "© 2019 | Prana Ronita | @prsfx"
-_LASTMODIFIED_  =       "15th December 2019"
+_ABOUT_         =       "© 2020 | Prana Ronita | @prsfx"
+_LASTMODIFIED_  =       "2020-March-16"
 
 _FOOTER_        =       "____________________________www.prsfx.net____________________________"
 
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
 
 import LoDb
 
@@ -28,7 +28,9 @@ import xml.etree.ElementTree as xml
 
 from cStringIO import StringIO
 
-#-----------------------------------------------------------------------------------#
+sys.dont_write_bytecode = True
+
+#---------------------------------------------------------------------------------------------------------------------#
 
 _PyQt5message_    =   "default bind: PyQt5"
 _PyQt4message_    =   "default bind: PyQt4"
@@ -36,7 +38,7 @@ _PySide2message_  =   "default bind: PySide2"
 _PySideMessage_   =   "default bind: PySide2"
 _nthngTbnd_       =   "Nothing to bind. Prolly nothin'."
 
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
 
 defaultBind = "None"
 try:
@@ -85,17 +87,20 @@ except:
                 logging.Logger.manager.loggerDict["pysideuic.properties"].setLevel(logging.CRITICAL)
                 defaultBind = _PySideMessage_
             except:
-                print _nthngTbnd_
+                print(_nthngTbnd_)
 
 print(defaultBind)
 
 if defaultBind == _PyQt5message_:
-    from PyQt5 import QtWidgets, QtCore, QtGui
+    from PyQt5 import QtWidgets, QtCore, QtGui, uic
 
 elif defaultBind == _PySide2message_:
     from PySide2 import QtWidgets, QtCore, QtGui
 
-#-----------------------------------------------------------------------------------#
+else:
+    from PySide2 import QtWidgets, QtCore, QtGui
+
+#---------------------------------------------------------------------------------------------------------------------#
 
 def loadUiType( uiFile ):
     '''workaround to be able to load QT designer uis with both PySide and PyQt4'''
@@ -119,7 +124,7 @@ def loadUiType( uiFile ):
             base_class = eval( '%s'%widget_class )
     return form_class, base_class
 
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
 
 def wrapinstance( ptr, base=None ):
     '''workaround to be able to wrap objects with both PySide and PyQt4'''
@@ -146,4 +151,4 @@ def wrapinstance( ptr, base=None ):
     else:
         return None
 
-#-----------------------------------------------------------------------------------#
+#---------------------------------------------------------------------------------------------------------------------#
