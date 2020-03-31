@@ -7,6 +7,7 @@ _AUTHOR_        =       "Prana Ronita"
 _PORTFOLIO_     =       "www.prsfx.net"
 _EMAIL_         =       "prana.ronita@gmail.com / prsfx.net@gmail.com"
 _SOCIAL_        =       "@prsfx"
+_LINK_          =       "https://github.com/prsfx/LoDb"
 
 _PROJECTNAME_   =       "LoDb"
 _VERSION_       =       "1.5"
@@ -131,7 +132,7 @@ def wrapinstance( ptr, base=None ):
     # http://nathanhorne.com/pyqtpyside-wrap-instance/
     if ptr is None:
         return None
-    ptr = long( ptr ) 
+    ptr = long( ptr )
     if globals().has_key( 'shiboken' ):
         if base is None:
             qObj = shiboken.wrapInstance( long( ptr ), QObject )
@@ -141,7 +142,7 @@ def wrapinstance( ptr, base=None ):
             if hasattr( QtGui, cls ):
                 base = getattr( QtGui, cls )
             elif hasattr( QtGui, superCls ):
-                base = getattr( QtGui, superCls ) 
+                base = getattr( QtGui, superCls )
             else:
                 base = QWidget
         return shiboken.wrapInstance( long( ptr ), base )
